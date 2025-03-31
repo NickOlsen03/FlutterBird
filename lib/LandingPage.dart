@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flappyflutter/homepage.dart';
+import 'SnakeGamePage.dart'; // Make sure to import your SnakeGamePage
+
 
 class LandingPage extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _LandingPageState extends State<LandingPage> {
       if (tapCount >= 100) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => SnakeGamePage()),
         );
       }
     });
