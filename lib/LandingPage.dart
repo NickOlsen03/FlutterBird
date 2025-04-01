@@ -34,7 +34,7 @@ class _LandingPageState extends State<LandingPage> {
   void _handleTap() {
     setState(() {
       tapCount++;
-      if (tapCount >= 100) {
+      if (tapCount >= 5) { //change this for the game. This is only the test version. I want everything easier to test
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => SnakeGamePage()),
@@ -47,18 +47,18 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     if (stage == 0) {
       return _buildQuestionPage(
-        question: 'What is Flutter?',
-        correctAnswer: 'A UI toolkit',
+        question: 'What is Flutter?',//this will be a riddle
+        correctAnswer: '1',//will have real answer just for test
       );
     } else if (stage == 1) {
       return _buildQuestionPage(
-        question: 'What language is used to write Flutter apps?',
-        correctAnswer: 'Dart',
+        question: 'What language is used to write Flutter apps?',//riddle 2
+        correctAnswer: '2',//just for test, will have real answer
       );
     } else if (stage == 2) {
       return _buildQuestionPage(
-        question: 'What widget is used to create a scrollable list?',
-        correctAnswer: 'ListView',
+        question: 'What widget is used to create a scrollable list?',//riddle 3
+        correctAnswer: '3',//just for test, will have real answer
       );
     } else {
       return _buildFinalStage();
@@ -93,7 +93,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget _buildFinalStage() {
     return Scaffold(
       appBar: AppBar(
-        title: Text("This is the worst game you will ever play"),
+        title: Text("Tap to play"),
       ),
       body: Center(
         child: Column(
@@ -102,6 +102,11 @@ class _LandingPageState extends State<LandingPage> {
             Text(
               "Tap the button 105 times to start the game.",
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(
+              "Dont tap to fast or it will kick you out ;)",
+              textAlign: TextAlign.right,
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 20),
